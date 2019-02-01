@@ -40,16 +40,17 @@ public class DialogueManager : MonoBehaviour
 
 	public void DisplayNextSentence ()
 	{
-		if (sentences.Count == 0)
+        if (sentences.Count > 0)
+		{
+            Sentences sentence = sentences.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));
+        }
+		if (sentences.Count == 0 && answers.Count > 0)
 		{
             DisplayAnswers();
 			//EndDialogue();
-			return;
 		}
-
-		Sentences sentence = sentences.Dequeue();
-		StopAllCoroutines();
-		StartCoroutine(TypeSentence(sentence));
 	}
 
     public void click(GameObject test, List<GameObject> listing) 

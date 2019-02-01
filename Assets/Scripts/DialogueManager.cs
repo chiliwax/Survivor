@@ -8,12 +8,13 @@ public class DialogueManager : MonoBehaviour
     public GameObject answerPrefab;
     public Text nameText;
 	public Text dialogueText;
-
 	public Animator animator;
-
     public Queue<Sentences> sentences;
+    public Stack<Answers> answers;
+    
     void Start() {
         sentences = new Queue<Sentences>();
+        answers = new Stack<Answers>();
     }
 
     	public void StartDialogue (Dialogue dialogue, string title)
@@ -28,6 +29,11 @@ public class DialogueManager : MonoBehaviour
 		{
 			sentences.Enqueue(sentence);
 		}
+
+        foreach (Answers answer in dialogue.Answers)
+        {
+            answers.Push(answer);
+        }
 
 		DisplayNextSentence();
 	}
@@ -46,19 +52,36 @@ public class DialogueManager : MonoBehaviour
 		StartCoroutine(TypeSentence(sentence));
 	}
 
-        public void click(GameObject test) {
-            test.GetComponentInChildren<Text>().text = "Click";
-            Debug.Log("click");
-        }
+    public void click(GameObject test) 
+    {
+            test.GetComponentInChildren<Text>().text = "YouClickOnMe";
+    }
     public void DisplayAnswers() 
     {
+        float offset = 0;
+        while (answers.Count != 0) {
+            Answers answer = answers.Pop();
             GameObject AnswerPF = Instantiate(answerPrefab);
+            
+            //set parent (for positionning)
             AnswerPF.transform.SetParent(FindObjectOfType<Canvas>().transform, false);
+            //set position
             AnswerPF.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f,0.1f);
             AnswerPF.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f,0.1f);
             AnswerPF.GetComponent<RectTransform>().pivot = new Vector2(0.5f,0.1f);
-            AnswerPF.GetComponentInChildren<Text>().text = "test";
+            AnswerPF.GetComponent<RectTransform>().anchoredPosition = new Vector2(AnswerPF.GetComponent<RectTransform>().anchoredPosition.x, AnswerPF.GetComponent<RectTransform>().anchoredPosition.y + offset);
+            
+            ///feed content (text, color, ...)///
+            AnswerPF.GetComponentInChildren<Text>().text = answer.answer;
+            //Text color
+            ColorBlock cb = AnswerPF.GetComponent<Button>().colors;
+            cb.normalColor = answer.color;
+            AnswerPF.GetComponent<Button>().colors = cb;
+            //add action
             AnswerPF.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => click(AnswerPF));
+
+            offset += AnswerPF.GetComponentInChildren<Text>().fontSize + 5;
+        }
     }
 
 	IEnumerator TypeSentence (Sentences sentence)

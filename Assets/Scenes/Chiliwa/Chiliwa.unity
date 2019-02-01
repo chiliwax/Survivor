@@ -786,6 +786,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352622236}
   m_CullTransparentMesh: 0
+--- !u!1 &1430269638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1430269640}
+  - component: {fileID: 1430269639}
+  m_Layer: 0
+  m_Name: Action
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1430269639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430269638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25c5be9b8bcce94aa32845ed7971d5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: test 2
+  dialogue:
+    Sentences:
+    - sentence: haha
+      color: {r: 0, g: 0, b: 0, a: 1}
+    Answers:
+    - answer: haha2
+      color: {r: 0, g: 0, b: 0, a: 1}
+      action: {fileID: 0}
+--- !u!4 &1430269640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430269638}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 562.5, y: 300, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1502055622
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,6 +967,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c763721ed5566d418ad297a7e2f83c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  answerPrefab: {fileID: 8551920724583492158, guid: f1e2de18e42d6034f8b90f380820acad,
+    type: 3}
   nameText: {fileID: 373381711}
   dialogueText: {fileID: 1352622238}
   animator: {fileID: 0}
@@ -984,17 +1038,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c25c5be9b8bcce94aa32845ed7971d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Test
+  title: 
   dialogue:
     Sentences:
     - sentence: Hello there, how are you ?
-      color: {r: 0, g: 0.049750824, b: 0.049750824, a: 1}
+      color: {r: 0, g: 0.049750824, b: 1, a: 1}
+    - sentence: Hello there, how are you ?
+      color: {r: 1, g: 0, b: 0.12838984, a: 1}
     Answers:
     - answer: '[GOOD] I''m fine thank''s you !'
       color: {r: 0, g: 1, b: 0, a: 1}
-      action: {fileID: 0}
+      action: {fileID: 1430269638}
     - answer: '[BAD] I''m bad actually !'
       color: {r: 1, g: 0, b: 0, a: 1}
+      action: {fileID: 0}
+    - answer: NOOOO
+      color: {r: 0.0107040405, g: 0, b: 1, a: 1}
       action: {fileID: 0}
 --- !u!114 &1954125294
 MonoBehaviour:

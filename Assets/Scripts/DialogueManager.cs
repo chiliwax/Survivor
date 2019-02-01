@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
 	public Animator animator;
     public Queue<Sentences> sentences;
     public Stack<Answers> answers;
+    private bool inDiscuss = false;
     
     void Start() {
         sentences = new Queue<Sentences>();
@@ -20,21 +21,18 @@ public class DialogueManager : MonoBehaviour
     	public void StartDialogue (Dialogue dialogue, string title)
 	{
 	// 	animator.SetBool("IsOpen", true);
-
+        if (inDiscuss == true) {return;}
+        inDiscuss = true;
 		nameText.text = title;
-
 		sentences.Clear();
-
 		foreach (Sentences sentence in dialogue.Sentences)
 		{
 			sentences.Enqueue(sentence);
 		}
-
         foreach (Answers answer in dialogue.Answers)
         {
             answers.Push(answer);
         }
-
 		DisplayNextSentence();
 	}
 
@@ -53,12 +51,15 @@ public class DialogueManager : MonoBehaviour
 		}
 	}
 
-    public void click(GameObject test, List<GameObject> listing) 
+    public void click(GameObject test, List<GameObject> listing, Answers answer) 
     {
+            EndDialogue();
             test.GetComponentInChildren<Text>().text = "YouClickOnMe";
-            
-            foreach (GameObject answer in listing) {
-            Destroy(answer);
+            if (answer.action != null) {
+                answer.action.GetComponent<DialogueTrigger>().TriggerDialogue();
+            }
+            foreach (GameObject answers in listing) {
+            Destroy(answers);
             }
     }
     public void DisplayAnswers() 
@@ -88,7 +89,7 @@ public class DialogueManager : MonoBehaviour
             cb.pressedColor = new Color(answer.color.r - 0.6f, answer.color.g - 0.6f, answer.color.b - 0.6f);
             AnswerPF.GetComponent<Button>().colors = cb;
             //add action
-            AnswerPF.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => click(AnswerPF, listing));
+            AnswerPF.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => click(AnswerPF, listing, answer));
             offset += AnswerPF.GetComponentInChildren<Text>().fontSize + 5;
         }
     }
@@ -106,7 +107,7 @@ public class DialogueManager : MonoBehaviour
 
 	void EndDialogue()
 	{
+        inDiscuss = false;
 //		animator.SetBool("IsOpen", false);
 	}
-
 }

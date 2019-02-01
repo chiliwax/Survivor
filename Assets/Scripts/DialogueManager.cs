@@ -52,17 +52,24 @@ public class DialogueManager : MonoBehaviour
 		StartCoroutine(TypeSentence(sentence));
 	}
 
-    public void click(GameObject test) 
+    public void click(GameObject test, List<GameObject> listing) 
     {
             test.GetComponentInChildren<Text>().text = "YouClickOnMe";
+            
+            foreach (GameObject answer in listing) {
+            Destroy(answer);
+            }
     }
     public void DisplayAnswers() 
     {
+        List<GameObject> listing = new List <GameObject>();
         float offset = 0;
         while (answers.Count != 0) {
             Answers answer = answers.Pop();
+            //create button
             GameObject AnswerPF = Instantiate(answerPrefab);
-            
+            //save data to destroy instantiate prefab after
+            listing.Add(AnswerPF);
             //set parent (for positionning)
             AnswerPF.transform.SetParent(FindObjectOfType<Canvas>().transform, false);
             //set position
@@ -76,10 +83,11 @@ public class DialogueManager : MonoBehaviour
             //Text color
             ColorBlock cb = AnswerPF.GetComponent<Button>().colors;
             cb.normalColor = answer.color;
+            cb.highlightedColor = new Color(answer.color.r - 0.7f, answer.color.g - 0.7f, answer.color.b - 0.7f);
+            cb.pressedColor = new Color(answer.color.r - 0.6f, answer.color.g - 0.6f, answer.color.b - 0.6f);
             AnswerPF.GetComponent<Button>().colors = cb;
             //add action
-            AnswerPF.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => click(AnswerPF));
-
+            AnswerPF.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => click(AnswerPF, listing));
             offset += AnswerPF.GetComponentInChildren<Text>().fontSize + 5;
         }
     }

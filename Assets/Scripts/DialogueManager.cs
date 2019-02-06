@@ -11,16 +11,19 @@ public class DialogueManager : MonoBehaviour
 	public Animator animator;
     public Queue<Sentences> sentences;
     public Stack<Answers> answers;
+    public GameObject Continue_button;
     private bool inDiscuss = false;
     
     void Start() {
         sentences = new Queue<Sentences>();
         answers = new Stack<Answers>();
+        animator.SetBool("IsDialogue", false);
+        Continue_button.SetActive(true);
     }
 
     	public void StartDialogue (Dialogue dialogue, string title)
 	{
-	// 	animator.SetBool("IsOpen", true);
+        animator.SetBool("IsDialogue", true);
         if (inDiscuss == true) {return;}
         inDiscuss = true;
 		nameText.text = title;
@@ -40,14 +43,15 @@ public class DialogueManager : MonoBehaviour
 	{
         if (sentences.Count > 0)
 		{
+            Continue_button.SetActive(true);
             Sentences sentence = sentences.Dequeue();
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));
         }
 		if (sentences.Count == 0 && answers.Count > 0)
 		{
+            Continue_button.SetActive(false);
             DisplayAnswers();
-			//EndDialogue();
 		}
 	}
 
@@ -109,5 +113,14 @@ public class DialogueManager : MonoBehaviour
 	{
         inDiscuss = false;
 //		animator.SetBool("IsOpen", false);
+        animator.SetBool("IsDialogue", false);
 	}
+
+        private IEnumerator WaitForAnimation ( Animation animation )
+    {
+        do
+        {
+            yield return null;
+        } while ( animation.isPlaying );
+    }
 }

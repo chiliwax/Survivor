@@ -78,8 +78,6 @@ public class DialogueManager : MonoBehaviour
             listing.Add(AnswerPF);
             //set parent (for positionning)
             AnswerPF.transform.SetParent(FindObjectOfType<Canvas>().transform, false);
-            //AnswerPF.transform.SetParent(GameObject.FindGameObjectsWithTag("dialog")[0].transform, false);
-            // AnswerPF.transform.SetParent(this.transform, false);
             //set position
             AnswerPF.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f,0.1f);
             AnswerPF.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f,0.1f);

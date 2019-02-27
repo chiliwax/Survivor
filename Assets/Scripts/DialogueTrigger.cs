@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class DialogueTrigger : MonoBehaviour
 {
     public string title;
@@ -11,4 +12,5 @@ public class DialogueTrigger : MonoBehaviour
         {
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue, title);
         }
+   
 }

@@ -112,6 +112,49 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &40175653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 40175655}
+  - component: {fileID: 40175654}
+  m_Layer: 0
+  m_Name: GoToMainMenu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &40175654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40175653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c224f6dec9924a4dbb4dc9098fb8a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &40175655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40175653}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.5100784, y: -2.5059733, z: 13.151251}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &97090491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,17 +1080,24 @@ MonoBehaviour:
   title: 
   dialogue:
     Sentences:
-    - sentence: Hello stranger, you are in front of the old manor of this Town.
+    - sentence: "Bonjour \xE9tranger,\nVous \xEAtes un d\xE9tective priv\xE9 engag\xE9
+        par un particulier pour r\xE9cup\xE9rer un objet pr\xE9cieux dans un manoir
+        dont le propri\xE9taire est mort r\xE9cemment et dont la police a fui les
+        lieux. \n\r\n"
       color: {r: 0, g: 0, b: 0, a: 1}
-    - sentence: Enter in the manor ?
+    - sentence: "Il ne sera pas ais\xE9 de s'emparer de cet objet car le d\xE9funt
+        propri\xE9taire a fait en sorte que certains secrets soient prot\xE9g\xE9s
+        par des \xE9nigmes qu'il faudra r\xE9soudre.\r"
+      color: {r: 0, g: 0, b: 0, a: 1}
+    - sentence: Entrer dans le manoir ?
       color: {r: 0, g: 0, b: 0, a: 1}
     Answers:
-    - answer: Yes
+    - answer: Oui
       color: {r: 0, g: 1, b: 0.04445076, a: 1}
       action: {fileID: 0}
-    - answer: No
+    - answer: Non
       color: {r: 1, g: 0, b: 0, a: 1}
-      action: {fileID: 0}
+      action: {fileID: 40175653}
 --- !u!61 &1562466061
 BoxCollider2D:
   m_ObjectHideFlags: 0

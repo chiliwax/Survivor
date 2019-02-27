@@ -60,7 +60,10 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             test.GetComponentInChildren<Text>().text = "YouClickOnMe";
             if (answer.action != null) {
-                answer.action.GetComponent<DialogueTrigger>().TriggerDialogue();
+                if(answer.action.GetComponent<mainmenu>())
+                    answer.action.GetComponent<mainmenu>().Mainmenu();
+                if(answer.action.GetComponent<DialogueTrigger>())
+                    answer.action.GetComponent<DialogueTrigger>().TriggerDialogue();
             }
             foreach (GameObject answers in listing) {
             Destroy(answers);

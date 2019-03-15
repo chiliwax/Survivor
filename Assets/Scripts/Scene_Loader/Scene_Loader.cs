@@ -21,10 +21,28 @@ public class Scene_Loader : MonoBehaviour
         SceneManager.LoadScene("coridor-left-2");
         inventory.scene = "coridor-left-2";
     }
+
+public void EntryToCoridorRight_1()
+    {
+        SceneManager.LoadScene("coridor-right-1");
+        inventory.scene = "coridor-right-1";
+    }
+
+    public void EntryToCoridorRight_2()
+    {
+        SceneManager.LoadScene("coridor-right-2");
+        inventory.scene = "coridor-right-2";
+    }
+
     public void Etage1_fromLeft()
     {
         SceneManager.LoadScene("Etage1_from_left");
         inventory.scene = "Etage1_from_left";
+    }
+    public void Etage1_fromRight()
+    {
+        SceneManager.LoadScene("Etage1_from_right");
+        inventory.scene = "Etage1_from_right";
     }
     public void Room_corridor1()
     {

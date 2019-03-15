@@ -8,4 +8,5 @@ public class inventory
     public static bool gold_key = false;
     public static bool silver_key = false;
     public static bool bronze_key = false;
+    public static string scene = "Chiliwa";
 }

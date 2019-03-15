@@ -62,6 +62,8 @@ public class DialogueManager : MonoBehaviour
             if (answer.action != null) {
                 if(answer.action.GetComponent<mainmenu>())
                     answer.action.GetComponent<mainmenu>().Mainmenu();
+                if(answer.action.GetComponent<GoToEntry>())
+                    answer.action.GetComponent<GoToEntry>().LoadScene();
                 if(answer.action.GetComponent<DialogueTrigger>())
                     answer.action.GetComponent<DialogueTrigger>().TriggerDialogue();
             }

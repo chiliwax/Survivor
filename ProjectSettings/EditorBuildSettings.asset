@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chiliwa/Chiliwa.unity
     guid: f669a98ee21f5e74fa3762dfcb90356a
+  - enabled: 1
+    path: Assets/Scenes/Chiliwa/Manor_entrance.unity
+    guid: 2bdc727c1ff7f3d43b80c5bd1ce11828
+  - enabled: 1
+    path: Assets/Scenes/Chiliwa/EntryLeft.unity
+    guid: 49fa9726fb92ace4386f2b2f05518037
+  - enabled: 1
+    path: Assets/Scenes/Chiliwa/EntryRight.unity
+    guid: 065e1186115dc144da74ad9c5b9b26a8
   m_configObjects: {}

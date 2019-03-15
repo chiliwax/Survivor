@@ -15,5 +15,8 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Quit !");
         Application.Quit();
+        Debug.Log("bronze : " + inventory.bronze_key.ToString());
+        Debug.Log("silver : " + inventory.silver_key.ToString());
+        Debug.Log("gold : " + inventory.gold_key.ToString());
     }
 }

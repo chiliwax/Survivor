@@ -23,4 +23,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chiliwa/EntryRight.unity
     guid: 065e1186115dc144da74ad9c5b9b26a8
+  - enabled: 1
+    path: Assets/Scenes/Chiliwa/coridor-left-1.unity
+    guid: 1f9c18cd7590b9b418277d0dd238403a
+  - enabled: 1
+    path: Assets/Scenes/Chiliwa/coridor-left-2.unity
+    guid: c15388224e656334ca693b216b6f67c1
+  - enabled: 1
+    path: Assets/Scenes/Chiliwa/Etage1_from_left.unity
+    guid: 18aa28c435406ba4eaa74a085181b1db
+  - enabled: 1
+    path: Assets/Scenes/Chiliwa/Room_corridor1.unity
+    guid: 8f85dceaca342ab4383dcf0aa28059a8
+  - enabled: 1
+    path: Assets/Scenes/Chiliwa/Room_corridor2.unity
+    guid: 16a5d385bd80da141a5faf482cbc1a93
+  - enabled: 1
+    path: Assets/Scenes/Chiliwa/Room_corridor3.unity
+    guid: 038331eac090fd94dada79c7f120e16a
+  - enabled: 1
+    path: Assets/Scenes/Chiliwa/Etage1_Center.unity
+    guid: ecef7ab495211ef46a9f9bf6dec4f178
   m_configObjects: {}

@@ -14,10 +14,12 @@ public class EnterObject : MonoBehaviour
 
     public void Enter()
     {
-        ObjectRenderer.color = Color.red;
+        float transparency = ObjectRenderer.color.a;
+        ObjectRenderer.color = new Color(Color.red.r, Color.red.g, Color.red.b, transparency);
     }
     public void Exit()
     {
-        ObjectRenderer.color = Color.white;
+        float transparency = ObjectRenderer.color.a;
+        ObjectRenderer.color = new Color(Color.white.r, Color.white.g, Color.white.b, transparency);
     }
 }

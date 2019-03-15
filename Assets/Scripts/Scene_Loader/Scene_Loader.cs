@@ -75,6 +75,24 @@ public void EntryToCoridorRight_1()
         inventory.scene = "EntryRight";
     }
 
+        public void Room1()
+    {
+        SceneManager.LoadScene("Room1");
+        inventory.scene = "Room1";
+    }
+
+            public void Room2()
+    {
+        SceneManager.LoadScene("Room2");
+        inventory.scene = "Room2";
+    }
+
+        public void Room3()
+    {
+        SceneManager.LoadScene("Room3");
+        inventory.scene = "Room3";
+    }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

@@ -93,6 +93,12 @@ public void EntryToCoridorRight_1()
         inventory.scene = "Room3";
     }
 
+    public void Menu()
+    {
+        SceneManager.LoadScene("Shadow");
+        Debug.Log("menu");
+    }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
+    path: Assets/Scenes/Chiliwa/Intro.unity
+    guid: 2f817bc10c699dc4fa63fd25fbdc787d
+  - enabled: 1
     path: Assets/Scenes/Shadow/Shadow.unity
     guid: 5a618a9c272043b4fbb816194ca3665d
   - enabled: 1
@@ -62,4 +65,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chiliwa/Room3.unity
     guid: 563021b7558395544b1f2beb1dce9b09
+  - enabled: 1
+    path: Assets/Scenes/Chiliwa/sound_scene/Sound_scene.unity
+    guid: 05a5dc2c1c7592549a9f36267b2e6a4e
   m_configObjects: {}

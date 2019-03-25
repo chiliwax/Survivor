@@ -2,12 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class press_any_key : MonoBehaviour
 {
-    void Update()
+    private bool loadScene = false;
+
+    public string _scene;
+    public TextMeshProUGUI textContainer;
+
+ void Update()
     {
         if (Input.anyKey)
-            SceneManager.LoadScene("Shadow");
+        {
+            if (loadScene == false)
+            {
+                loadScene = true;
+                textContainer.text = "Loading...";
+                textContainer.color = Color.yellow;
+                StartCoroutine(LoadSceneAsync());
+                SceneManager.LoadScene(_scene);
+                inventory.scene = _scene;
+            }
+        }
     }
+    IEnumerator LoadSceneAsync()
+    {
+        yield return new WaitForSeconds(3);
+        AsyncOperation async = SceneManager.LoadSceneAsync(_scene);
+        while (!async.isDone)
+        {
+            yield return null;
+        }
+    }
+
 }
